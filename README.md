@@ -54,7 +54,7 @@ function by adding the following line in the main function:
 	ExecuteTestCase(1,TestCase1(),"Normal execution with all 4 categories of items");
 
    - first argument: id number of the testcase
-   - second argument: List<ItemWrapper>, which should be returned by a private testcase function
+   - second argument: List of ItemWrapper objects, which should be returned by a private testcase function
    - third argument: description of the testcase
 
 RUNNING THE PROGRAM
