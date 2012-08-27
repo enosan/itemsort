@@ -91,7 +91,7 @@ public class ItemWrapper
 	// their name and their array of unique dependencies
 
 	public bool Equals(ItemWrapper item)
-    {		
+	{		
 		if (!item.GetName().Equals(this.name))
 			return false;
 		
@@ -112,8 +112,8 @@ public class ItemWrapper
 				return false;
 		}
 
-       return true;
-    }
+		return true;
+	}
 
 	private string name;  // name of this item
 	private object item;  // item of unknown type
@@ -126,18 +126,18 @@ public class ItemWrapper
 
 struct Item
 {
-    private string val;
-    public string Data
-    {
-        get 
-        {
-            return val;
-        }
-        set 
-        {
-            val = value;
-        }
-    }
+	private string val;
+	public string Data
+	{
+		get 
+		{
+			return val;
+		}
+		set 
+		{
+			val = value;
+		}
+	}
 
 	public Item(string data) 
 	{
@@ -204,7 +204,7 @@ public class ItemSort
 	// this function sorts the list of items and return sorted list
 
 	private static List<ItemWrapper> getSortedList(List<ItemWrapper> items)  
-    {
+	{
 		Queue<ItemWrapper> itemsToTraverse = new Queue<ItemWrapper>();		
 		List<ItemWrapper> sortedItems = new List<ItemWrapper>();
 		Dictionary<string, ItemWrapper> indexes = new Dictionary<string, ItemWrapper>();  
@@ -212,8 +212,8 @@ public class ItemSort
 		// store the locations of items in list by name in dictionary,
 		// allows easier access later when adding edges (dependencies)
 
-        for (int i = 0; i < items.Count; i++)  
-        {  
+		for (int i = 0; i < items.Count; i++)  
+		{  
 			if (!String.IsNullOrEmpty(items[i].GetName()))
 			{
 				// check for duplicates, they are allowed only if both name and unique 
@@ -223,38 +223,38 @@ public class ItemSort
 					!indexes[items[i].GetName()].Equals(items[i]))
 					throw new Exception("\tError: Duplicate item with conflicting dependencies");
 				else
-            		indexes[items[i].GetName()] = items[i];
+					indexes[items[i].GetName()] = items[i];
 			}
-        }  
+		}  
 
         // add edges, both incoming (other items depending on itself) and
 		// outgoing (items it depends on)  
 
-        for (int i = 0; i < items.Count; i++)  
-        {  
+		for (int i = 0; i < items.Count; i++)  
+		{  
 			string[] dependsOn = items[i].GetDependencies();
-            if (dependsOn != null)  
-            {  
+			if (dependsOn != null)  
+			{  
 				foreach (string name in dependsOn)
-                {  
+				{  
 					if (indexes.ContainsKey(name)) 
 					{
-		                indexes[name].AddIncomingDependency(items[i]);
+				        indexes[name].AddIncomingDependency(items[i]);
 						items[i].AddOutgoingDependency(indexes[name]);
 					}
 					else
 					{
 						throw new Exception("\tError: An item has dependency on an non-existent item");
 					}
-                }  
-            }  
+				}  
+			}  
 			else
 			{
 				// add nodes with no dependencies to the queue for traversal
 
 				itemsToTraverse.Enqueue(items[i]);
 			}
-        }  
+		}  
   
 		// continue to traverse through queue until all items are processed
 
@@ -290,7 +290,7 @@ public class ItemSort
 
 		if (sortedItems.Count != items.Count) 
 		{        
-            throw new Exception("\tError: Cyclic references detected in list of items");  
+			throw new Exception("\tError: Cyclic references detected in list of items");  
 		} 
 		else 
 		{
