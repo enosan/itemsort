@@ -41,10 +41,9 @@ CONSTRUCTING TESTCASES
 
 If you would like to make your own testcase and construct your own list of items, you
 will need to provide the following to the ItemWrapper constructor:
-
-	-an object of any type you choose
-	-optional: a name of the object
-	-optional: a comma-seperated string of names it depends on
+   - an object of any type you choose
+   - optional: a name of the object
+   - optional: a comma-seperated string of names it depends on
 
 If the optional parameters are not provided, an empty string will be used as default.
 A name with an empty string signifies an unnamed item.
@@ -54,9 +53,9 @@ function by adding the following line in the main function:
 
 	ExecuteTestCase(1,TestCase1(),"Normal execution with all 4 categories of items");
 
-	-first argument: id number of the testcase
-	-second argument: List<ItemWrapper>, which should be returned by a private testcase function
-	-third argument: description of the testcase
+   - first argument: id number of the testcase
+   - second argument: List<ItemWrapper>, which should be returned by a private testcase function
+   - third argument: description of the testcase
 
 RUNNING THE PROGRAM
 

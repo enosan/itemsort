@@ -315,7 +315,7 @@ public class ItemSort
 						return false;
 				}
 			}
-			if (!String.IsNullOrEmpty(items[i].GetName()))
+			if (!String.IsNullOrEmpty(item.GetName()))
 				names.Add(item.GetName());
 		}
 		
